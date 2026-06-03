@@ -1,16 +1,57 @@
+'use client'
+
 import React from 'react'
+import { motion } from 'framer-motion'
 
 const Menu = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  }
+
   return (
     <React.Fragment>
         <section id="menu">
   <div className="section-container">
-    <h2 className="section-title">Our Menu</h2>
-    <p className="section-subtitle">Discover our handcrafted selections</p>
+    <motion.h2
+      className="section-title"
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+    >
+      Our Menu
+    </motion.h2>
+    <motion.p
+      className="section-subtitle"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.1 }}
+      viewport={{ once: true }}
+    >
+      Discover our handcrafted selections
+    </motion.p>
 
-    <div className="menu-container">
+    <motion.div
+      className="menu-container"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
 
-      <div className="menu-card">
+      <motion.div className="menu-card" variants={cardVariants}>
         <div className="menu-card-image">
           <img src="/images/food2.jpg" alt="Chicken Shawarma" />
           <div className="menu-card-badge">Best Seller</div>
@@ -23,9 +64,9 @@ const Menu = () => {
             <button className="btn-icon" title="Add to cart">+</button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="menu-card">
+      <motion.div className="menu-card" variants={cardVariants}>
         <div className="menu-card-image">
           <img src="/images/unsplash 1.jpg" alt="Beef Burger" />
           <div className="menu-card-badge">Featured</div>
@@ -38,9 +79,9 @@ const Menu = () => {
             <button className="btn-icon" title="Add to cart">+</button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="menu-card">
+      <motion.div className="menu-card" variants={cardVariants}>
         <div className="menu-card-image">
           <img src="/images/unsplash 3.jpg" alt="Grilled Chicken" />
         </div>
@@ -52,9 +93,9 @@ const Menu = () => {
             <button className="btn-icon" title="Add to cart">+</button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="menu-card">
+      <motion.div className="menu-card" variants={cardVariants}>
         <div className="menu-card-image">
           <img src="/images/unsplash 4.jpg" alt="Grilled Chicken & Sausage" />
         </div>
@@ -66,9 +107,9 @@ const Menu = () => {
             <button className="btn-icon" title="Add to cart">+</button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="menu-card">
+      <motion.div className="menu-card" variants={cardVariants}>
         <div className="menu-card-image">
           <img src="/images/unsplash 2.jpg" alt="Noodles" />
         </div>
@@ -80,9 +121,9 @@ const Menu = () => {
             <button className="btn-icon" title="Add to cart">+</button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="menu-card">
+      <motion.div className="menu-card" variants={cardVariants}>
         <div className="menu-card-image">
           <img src="/images/download4.jpg" alt="Grilled Beef" />
         </div>
@@ -94,9 +135,9 @@ const Menu = () => {
             <button className="btn-icon" title="Add to cart">+</button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="menu-card">
+      <motion.div className="menu-card" variants={cardVariants}>
         <div className="menu-card-image">
           <img src="/images/ibo12.jpg" alt="Grilled Beef"/>
         </div>
@@ -108,9 +149,9 @@ const Menu = () => {
             <button className="btn-icon" title="Add to cart">+</button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="menu-card">
+      <motion.div className="menu-card" variants={cardVariants}>
         <div className="menu-card-image">
           <img src="/images/ibo15.jpg" alt="Grilled Beef" />
         </div>
@@ -122,8 +163,9 @@ const Menu = () => {
             <button className="btn-icon" title="Add to cart">+</button>
           </div>
         </div>
-      </div>
-      <div className="menu-card">
+      </motion.div>
+      
+      <motion.div className="menu-card" variants={cardVariants}>
         <div className="menu-card-image">
           <img src="/images/ibo16.jpg" alt="Grilled Beef" />
         </div>
@@ -135,9 +177,9 @@ const Menu = () => {
             <button className="btn-icon" title="Add to cart">+</button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-    </div>
+    </motion.div>
   </div>
 </section>
     </React.Fragment>

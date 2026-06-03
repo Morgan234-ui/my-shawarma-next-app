@@ -1,33 +1,40 @@
 'use client'
 import React from 'react'
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const toggleMenu = () => setMenuOpen((prev) => !prev)
+  const logoVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  }
 
   return (
         <React.Fragment>
-            <header>
+            <motion.header initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
   <div className="header-container">
-    <div className="logo-section">
+    <motion.div className="logo-section" variants={logoVariants} initial="hidden" animate="visible">
       <div className="logo-icon">🍢</div>
       <div className="logo-text">
         <h1>MimiRichies Bite</h1>
          <p className="tagline">Premium Shawarma & Grill</p>
       </div>
-    </div>
+    </motion.div>
 
-    <button
+    <motion.button
       type="button"
       className="menu-toggle"
       aria-expanded={menuOpen}
       aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
       onClick={toggleMenu}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
     >
       {menuOpen ? '✕' : '☰'}
-    </button>
+    </motion.button>
 
     <nav className={menuOpen ? 'nav-open' : ''}>
       <ul>
@@ -42,7 +49,7 @@ const Header = () => {
     {/* Header actions removed for a clean navigation layout */}
 
   </div>
-</header>
+</motion.header>
         </React.Fragment>
   )
 }

@@ -1049,20 +1049,26 @@ footer p {
     order: 1;
   }
   nav {
-    display: none;
+    display: block;
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
-    width: min(320px, 80vw);
+    width: min(320px, 85vw);
     background: rgba(17, 24, 39, 0.98);
     padding: 4.5rem 1.25rem 1.25rem;
     box-shadow: -12px 0 32px rgba(0, 0, 0, 0.25);
     z-index: 999;
     overflow-y: auto;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s ease, opacity 0.25s ease;
   }
   nav.nav-open {
-    display: block;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
   }
   nav ul {
     flex-direction: column;
