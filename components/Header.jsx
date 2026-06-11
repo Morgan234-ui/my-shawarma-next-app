@@ -37,13 +37,15 @@ const Header = () => {
     </motion.button>
 
     <nav className={menuOpen ? 'nav-open' : ''}>
+      <motion.div className="div" variants={logoVariants} initial='hidden' animate='visible'>
       <ul>
-        <li><a href="#home" className="nav-link">Home</a></li>
-        <li><a href="#about" className="nav-link">About</a></li>
-        <li><a href="#menu" className="nav-link">Menu</a></li>
-        <li><a href="#order" className="nav-link">Order</a></li>
-        <li><a href="#contact" className="nav-link">Contact</a></li>
+        <li><a href="#home" className="nav-link" onClick={() => setMenuOpen(false)}>Home</a></li>
+        <li><a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a></li>
+        <li><a href="#menu" className="nav-link" onClick={() => setMenuOpen(false)}>Menu</a></li>
+        <li><a href="#order" className="nav-link" onClick={() => setMenuOpen(false)}>Order</a></li>
+        <li><a href="#contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</a></li>
       </ul>
+      </motion.div>
     </nav>
 
     {/* Header actions removed for a clean navigation layout */}
